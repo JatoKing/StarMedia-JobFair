@@ -1,0 +1,58 @@
+{
+    "prizes": [
+        {
+            "id": "grand-01",
+            "name": "iPhone 16",
+            "type": "grand",
+            "graphic": "🏆",
+            "probability": 0.02,
+            "quantity": 1,
+            "remaining": 1
+        },
+        {
+            "id": "second-01",
+            "name": "Smart Watch",
+            "type": "second",
+            "graphic": "⌚",
+            "probability": 0.08,
+            "quantity": 3,
+            "remaining": 2
+        },
+        {
+            "id": "second-02",
+            "name": "Bluetooth Speaker",
+            "type": "second",
+            "graphic": "🔊",
+            "probability": 0.1,
+            "quantity": 5,
+            "remaining": 4
+        },
+        {
+            "id": "consolation-01",
+            "name": "Job Fair T-Shirt",
+            "type": "consolation",
+            "graphic": "👕",
+            "probability": 0.2,
+            "quantity": 20,
+            "remaining": 19
+        },
+        {
+            "id": "consolation-02",
+            "name": "Baucar RM10",
+            "type": "consolation",
+            "graphic": "🎫",
+            "probability": 0.25,
+            "quantity": 30,
+            "remaining": 30
+        },
+        {
+            "id": "consolation-03",
+            "name": "Beg Tote Job Fair",
+            "type": "consolation",
+            "graphic": "👜",
+            "probability": 0.35,
+            "quantity": 40,
+            "remaining": 36
+        }
+    ]
+}

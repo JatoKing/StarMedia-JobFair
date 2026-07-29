@@ -1,0 +1,141 @@
+{
+  "nav": {
+  "home": "Utama",
+  "directory": "Direktori",
+  "exhibitor": "Jadi Exhibitor",
+  "contact": "Hubungi Kami",
+  "spinWheel": "🎡 Spin & Menang"
+},
+  "hero": {
+    "eyebrow": "🎉 Job Fair 2026",
+    "title": "Your Career Journey<br />Starts Here",
+    "subtitle": "Meet 50+ leading companies, explore job openings across industries, and join live job matching sessions — all in one place.",
+    "ctaExhibitor": "Become an Exhibitor",
+    "ctaDirectory": "View Directory",
+    "countdownLabel": "Starting in",
+    "days": "Days",
+    "hours": "Hours",
+    "minutes": "Minutes",
+    "seconds": "Seconds"
+  },
+  "directory": {
+    "eyebrow": "Directory",
+    "title": "Explore Exhibitors & Floor Plan",
+    "subtitle": "Find companies, job roles, or industries you're interested in.",
+    "searchPlaceholder": "Search company or job title...",
+    "viewFloorPlan": "🗺️ View Full Floor Plan",
+    "empty": "No exhibitors found. Try a different keyword or category.",
+    "booth": "Booth",
+    "floorPlanTitle": "Floor Plan — Job Fair 2026",
+    "floorPlanSubtitle": "Click any booth to view exhibitor details.",
+    "positionsLabel": "Open Positions:",
+    "categories": {
+      "all": "All",
+      "Teknologi": "Technology",
+      "Kewangan": "Finance",
+      "Runcit": "Retail",
+      "Pembuatan": "Manufacturing",
+      "Perkhidmatan": "Services"
+    }
+  },
+  "contact": {
+    "eyebrow": "Contact Us",
+    "title": "Have a Question?<br />We're Here to Help",
+    "subtitle": "Whether you're a job fair visitor or looking to exhibit, send us a message and our team will get back to you as soon as possible.",
+    "nameLabel": "Full Name",
+    "namePlaceholder": "John Doe",
+    "emailLabel": "Email",
+    "emailPlaceholder": "john@email.com",
+    "phoneLabel": "Phone Number",
+    "phonePlaceholder": "012-3456789",
+    "messageLabel": "Message",
+    "messagePlaceholder": "Write your question or additional info...",
+    "submit": "Send Message",
+    "submitting": "Sending...",
+    "success": "✅ Your message has been sent! We'll contact you shortly.",
+    "errors": {
+      "name": "Name is required.",
+      "email": "Email is required.",
+      "emailInvalid": "Invalid email format.",
+      "phone": "Phone number is required.",
+      "phoneInvalid": "Invalid phone number format.",
+      "message": "Message is required."
+    }
+  },
+  "exhibitorForm": {
+    "title": "Become an Exhibitor — Job Fair 2026",
+    "subtitle": "Fill in your company details, our team will contact you to confirm your booth.",
+    "companyLabel": "Company Name",
+    "companyPlaceholder": "Nexora Technologies Sdn Bhd",
+    "contactPersonLabel": "Contact Person",
+    "contactPersonPlaceholder": "Nurul Aina",
+    "emailLabel": "Email",
+    "emailPlaceholder": "hr@company.com",
+    "phoneLabel": "Phone Number",
+    "phonePlaceholder": "012-3456789",
+    "categoryLabel": "Industry Category",
+    "messageLabel": "Additional Notes (Optional)",
+    "messagePlaceholder": "Job openings, booth requirements, etc.",
+    "submit": "Submit Registration",
+    "submitting": "Submitting...",
+    "success": "✅ Registration successful! We'll contact you within 2 business days.",
+    "errors": {
+      "companyName": "Company name is required.",
+      "contactPerson": "Contact person is required.",
+      "email": "Email is required.",
+      "emailInvalid": "Invalid email format.",
+      "phone": "Phone number is required.",
+      "phoneInvalid": "Invalid phone number format.",
+      "category": "Please select an industry category."
+    }
+  },
+  "reservation": {
+    "eyebrow": "Job Matching & Career Talk",
+    "title": "Reserve Your Session Slot",
+    "subtitle": "Choose the job matching or career talk session you're interested in. Seats are limited!",
+    "loading": "Loading sessions...",
+    "seatsRemaining": "{n} seats left",
+    "full": "Full",
+    "reserveSlot": "Reserve Slot",
+    "slotFull": "Slot Full",
+    "modalTitle": "Reserve Slot",
+    "nameLabel": "Full Name",
+    "namePlaceholder": "John Doe",
+    "emailLabel": "Email",
+    "emailPlaceholder": "john@email.com",
+    "phoneLabel": "Phone Number",
+    "phonePlaceholder": "012-3456789",
+    "submit": "Confirm Reservation",
+    "submitting": "Submitting...",
+    "success": "✅ Reservation successful! Please check your email for details.",
+    "errors": {
+      "name": "Name is required.",
+      "email": "Email is required.",
+      "emailInvalid": "Invalid email format.",
+      "phone": "Phone number is required.",
+      "phoneInvalid": "Invalid phone number format."
+    }
+  },
+  "common": {
+    "close": "Close"
+  },
+"spinningWheel": {
+  "eyebrow": "Job Fair Spinning Wheel",
+  "title": "Putar & Menangi Hadiah!",
+  "subtitle": "Setiap pengunjung layak untuk satu putaran percuma. Semoga bertuah!",
+  "loading": "Memuatkan hadiah...",
+  "spinButton": "🎡 Putar Sekarang",
+  "spinning": "Sedang berputar...",
+  "soldOut": "Semua Hadiah Telah Habis",
+  "prizesLabel": "Senarai Hadiah",
+  "remaining": "{n} baki",
+  "congrats": "🎉 Tahniah! Anda memenangi",
+  "congratsGrand": "🎊 JACKPOT! Anda memenangi",
+  "closeResult": "Tutup",
+  "types": {
+    "grand": "Hadiah Utama",
+    "second": "Hadiah Kedua",
+    "consolation": "Hadiah Saguhati"
+  }
+}
+}

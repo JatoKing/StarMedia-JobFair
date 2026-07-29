@@ -1,0 +1,141 @@
+{
+  "nav": {
+  "home": "Home",
+  "directory": "Directory",
+  "exhibitor": "Become an Exhibitor",
+  "contact": "Contact Us",
+  "spinWheel": "🎡 Spin & Win"
+},
+  "hero": {
+    "eyebrow": "🎉 Job Fair 2026",
+    "title": "Peluang Kerjaya Anda<br />Bermula Di Sini",
+    "subtitle": "Temui lebih 50+ syarikat terkemuka, jawatan kosong pelbagai industri, dan sesi job matching secara langsung — semua dalam satu tempat.",
+    "ctaExhibitor": "Jadi Exhibitor",
+    "ctaDirectory": "Lihat Direktori",
+    "countdownLabel": "Bermula dalam",
+    "days": "Hari",
+    "hours": "Jam",
+    "minutes": "Minit",
+    "seconds": "Saat"
+  },
+  "directory": {
+    "eyebrow": "Direktori",
+    "title": "Teroka Exhibitor & Floor Plan",
+    "subtitle": "Cari syarikat, jawatan, atau kategori industri yang anda minati.",
+    "searchPlaceholder": "Cari syarikat atau jawatan...",
+    "viewFloorPlan": "🗺️ Lihat Floor Plan Penuh",
+    "empty": "Tiada exhibitor dijumpai. Cuba kata kunci atau kategori lain.",
+    "booth": "Booth",
+    "floorPlanTitle": "Floor Plan — Job Fair 2026",
+    "floorPlanSubtitle": "Klik mana-mana booth untuk lihat maklumat exhibitor.",
+    "positionsLabel": "Jawatan Kosong:",
+    "categories": {
+      "all": "Semua",
+      "Teknologi": "Teknologi",
+      "Kewangan": "Kewangan",
+      "Runcit": "Runcit",
+      "Pembuatan": "Pembuatan",
+      "Perkhidmatan": "Perkhidmatan"
+    }
+  },
+  "contact": {
+    "eyebrow": "Hubungi Kami",
+    "title": "Ada Soalan?<br />Kami Sedia Bantu",
+    "subtitle": "Sama ada anda peserta job fair atau ingin jadi exhibitor, hantar mesej dan pasukan kami akan hubungi anda secepat mungkin.",
+    "nameLabel": "Nama Penuh",
+    "namePlaceholder": "Ahmad bin Ali",
+    "emailLabel": "Email",
+    "emailPlaceholder": "ahmad@email.com",
+    "phoneLabel": "Nombor Telefon",
+    "phonePlaceholder": "012-3456789",
+    "messageLabel": "Mesej",
+    "messagePlaceholder": "Tulis soalan atau maklumat tambahan...",
+    "submit": "Hantar Mesej",
+    "submitting": "Menghantar...",
+    "success": "✅ Mesej anda berjaya dihantar! Kami akan hubungi anda tidak lama lagi.",
+    "errors": {
+      "name": "Nama diperlukan.",
+      "email": "Email diperlukan.",
+      "emailInvalid": "Format email tidak sah.",
+      "phone": "Nombor telefon diperlukan.",
+      "phoneInvalid": "Format nombor telefon tidak sah.",
+      "message": "Mesej diperlukan."
+    }
+  },
+  "exhibitorForm": {
+    "title": "Jadi Exhibitor Job Fair 2026",
+    "subtitle": "Isi maklumat syarikat anda, pasukan kami akan hubungi untuk pengesahan booth.",
+    "companyLabel": "Nama Syarikat",
+    "companyPlaceholder": "Nexora Technologies Sdn Bhd",
+    "contactPersonLabel": "Nama Pegawai Dihubungi",
+    "contactPersonPlaceholder": "Nurul Aina",
+    "emailLabel": "Email",
+    "emailPlaceholder": "hr@syarikat.com",
+    "phoneLabel": "Nombor Telefon",
+    "phonePlaceholder": "012-3456789",
+    "categoryLabel": "Kategori Industri",
+    "messageLabel": "Nota Tambahan (Pilihan)",
+    "messagePlaceholder": "Jawatan yang ditawarkan, keperluan booth, dll.",
+    "submit": "Hantar Pendaftaran",
+    "submitting": "Menghantar...",
+    "success": "✅ Pendaftaran berjaya! Kami akan hubungi anda dalam masa 2 hari bekerja.",
+    "errors": {
+      "companyName": "Nama syarikat diperlukan.",
+      "contactPerson": "Nama pegawai dihubungi diperlukan.",
+      "email": "Email diperlukan.",
+      "emailInvalid": "Format email tidak sah.",
+      "phone": "Nombor telefon diperlukan.",
+      "phoneInvalid": "Format nombor telefon tidak sah.",
+      "category": "Sila pilih kategori industri."
+    }
+  },
+  "reservation": {
+    "eyebrow": "Job Matching & Career Talk",
+    "title": "Tempah Slot Sesi Anda",
+    "subtitle": "Pilih sesi job matching atau career talk yang anda minati. Tempat adalah terhad!",
+    "loading": "Memuatkan sesi...",
+    "seatsRemaining": "{n} tempat lagi",
+    "full": "Penuh",
+    "reserveSlot": "Tempah Slot",
+    "slotFull": "Slot Penuh",
+    "modalTitle": "Tempah Slot",
+    "nameLabel": "Nama Penuh",
+    "namePlaceholder": "Ahmad bin Ali",
+    "emailLabel": "Email",
+    "emailPlaceholder": "ahmad@email.com",
+    "phoneLabel": "Nombor Telefon",
+    "phonePlaceholder": "012-3456789",
+    "submit": "Sahkan Tempahan",
+    "submitting": "Menghantar...",
+    "success": "✅ Tempahan berjaya! Sila semak email untuk maklumat lanjut.",
+    "errors": {
+      "name": "Nama diperlukan.",
+      "email": "Email diperlukan.",
+      "emailInvalid": "Format email tidak sah.",
+      "phone": "Nombor telefon diperlukan.",
+      "phoneInvalid": "Format nombor telefon tidak sah."
+    }
+  },
+  "common": {
+    "close": "Tutup"
+  },
+"spinningWheel": {
+  "eyebrow": "Job Fair Spinning Wheel",
+  "title": "Spin & Win Prizes!",
+  "subtitle": "Every visitor gets one free spin. Good luck!",
+  "loading": "Loading prizes...",
+  "spinButton": "🎡 Spin Now",
+  "spinning": "Spinning...",
+  "soldOut": "All Prizes Claimed",
+  "prizesLabel": "Prize List",
+  "remaining": "{n} left",
+  "congrats": "🎉 Congratulations! You won",
+  "congratsGrand": "🎊 JACKPOT! You won",
+  "closeResult": "Close",
+  "types": {
+    "grand": "Grand Prize",
+    "second": "Second Prize",
+    "consolation": "Consolation Prize"
+  }
+}
+}
