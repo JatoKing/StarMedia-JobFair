@@ -1,10 +1,10 @@
 {
   "nav": {
-  "home": "Home",
-  "directory": "Directory",
-  "exhibitor": "Become an Exhibitor",
-  "contact": "Contact Us",
-  "spinWheel": "🎡 Spin & Win"
+  "home": "Utama",
+  "directory": "Direktori",
+  "exhibitor": "Jadi Exhibitor",
+  "contact": "Hubungi Kami",
+  "spinWheel": "🎡 Spin & Menang"
 },
   "hero": {
     "eyebrow": "🎉 Job Fair 2026",
@@ -121,21 +121,21 @@
   },
 "spinningWheel": {
   "eyebrow": "Job Fair Spinning Wheel",
-  "title": "Spin & Win Prizes!",
-  "subtitle": "Every visitor gets one free spin. Good luck!",
-  "loading": "Loading prizes...",
-  "spinButton": "🎡 Spin Now",
-  "spinning": "Spinning...",
-  "soldOut": "All Prizes Claimed",
-  "prizesLabel": "Prize List",
-  "remaining": "{n} left",
-  "congrats": "🎉 Congratulations! You won",
-  "congratsGrand": "🎊 JACKPOT! You won",
-  "closeResult": "Close",
+  "title": "Putar & Menangi Hadiah!",
+  "subtitle": "Setiap pengunjung layak untuk satu putaran percuma. Semoga bertuah!",
+  "loading": "Memuatkan hadiah...",
+  "spinButton": "🎡 Putar Sekarang",
+  "spinning": "Sedang berputar...",
+  "soldOut": "Semua Hadiah Telah Habis",
+  "prizesLabel": "Senarai Hadiah",
+  "remaining": "{n} baki",
+  "congrats": "🎉 Tahniah! Anda memenangi",
+  "congratsGrand": "🎊 JACKPOT! Anda memenangi",
+  "closeResult": "Tutup",
   "types": {
-    "grand": "Grand Prize",
-    "second": "Second Prize",
-    "consolation": "Consolation Prize"
+    "grand": "Hadiah Utama",
+    "second": "Hadiah Kedua",
+    "consolation": "Hadiah Saguhati"
   }
 }
 }
