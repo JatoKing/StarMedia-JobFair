@@ -8,7 +8,7 @@
 },
   "hero": {
     "eyebrow": "🎉 Job Fair 2026",
-    "title": "Peluang Kerjaya Anda<br />Bermula Di Sini",
+    "title": "<span class=\"hero__title-solid\">Peluang Kerjaya</span> Anda<br />Bermula Di Sini",
     "subtitle": "Temui lebih 50+ syarikat terkemuka, jawatan kosong pelbagai industri, dan sesi job matching secara langsung — semua dalam satu tempat.",
     "ctaExhibitor": "Jadi Exhibitor",
     "ctaDirectory": "Lihat Direktori",
@@ -23,11 +23,10 @@
     "title": "Teroka Exhibitor & Floor Plan",
     "subtitle": "Cari syarikat, jawatan, atau kategori industri yang anda minati.",
     "searchPlaceholder": "Cari syarikat atau jawatan...",
-    "viewFloorPlan": "🗺️ Lihat Floor Plan Penuh",
+    "toggleFloorPlan": "Lihat Floor Plan",
+    "clearFilter": "Kosongkan Penapis",
     "empty": "Tiada exhibitor dijumpai. Cuba kata kunci atau kategori lain.",
     "booth": "Booth",
-    "floorPlanTitle": "Floor Plan — Job Fair 2026",
-    "floorPlanSubtitle": "Klik mana-mana booth untuk lihat maklumat exhibitor.",
     "positionsLabel": "Jawatan Kosong:",
     "categories": {
       "all": "Semua",
@@ -118,6 +117,12 @@
   },
   "common": {
     "close": "Tutup"
+  },
+  "footer": {
+    "tagline": "Menghubungkan bakat dengan syarikat terkemuka — satu job fair pada satu masa.",
+    "quickLinks": "Pautan Pantas",
+    "followUs": "Ikuti Kami",
+    "copyright": "© 2026 JobFair. Hak cipta terpelihara."
   },
 "spinningWheel": {
   "eyebrow": "Job Fair Spinning Wheel",

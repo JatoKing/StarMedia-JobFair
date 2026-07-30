@@ -7,6 +7,26 @@ import { isRequired, isValidEmail, isValidPhone } from '@/utils/validators'
 
 const { t } = useI18n()
 
+const footerNavLinks = [
+  { key: 'nav.home', target: '#home' },
+  { key: 'nav.directory', target: '#directory' },
+  { key: 'nav.exhibitor', target: '#exhibitor' },
+  { key: 'nav.contact', target: '#contact' }
+]
+
+const socialLinks = [
+  { id: 'facebook', label: 'Facebook', href: '#' },
+  { id: 'instagram', label: 'Instagram', href: '#' },
+  { id: 'linkedin', label: 'LinkedIn', href: '#' }
+]
+
+function scrollToSection(target) {
+  const el = document.querySelector(target)
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+}
+
 const form = reactive({
   name: '',
   email: '',
@@ -65,6 +85,31 @@ function fieldError(field) {
         <p class="contact__eyebrow">{{ t('contact.eyebrow') }}</p>
         <h2 class="contact__title" v-html="t('contact.title')"></h2>
         <p class="contact__subtitle">{{ t('contact.subtitle') }}</p>
+
+        <div class="contact__footer-nav">
+          <div class="footer-nav__col">
+            <p class="footer-nav__heading">{{ t('footer.quickLinks') }}</p>
+            <ul class="footer-nav__list">
+              <li v-for="link in footerNavLinks" :key="link.target">
+                <a href="#" @click.prevent="scrollToSection(link.target)">{{ t(link.key) }}</a>
+              </li>
+              <li>
+                <RouterLink to="/spinning-wheel">{{ t('nav.spinWheel') }}</RouterLink>
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-nav__col">
+            <p class="footer-nav__heading">{{ t('footer.followUs') }}</p>
+            <ul class="footer-nav__socials">
+              <li v-for="social in socialLinks" :key="social.id">
+                <a :href="social.href" :aria-label="social.label" target="_blank" rel="noreferrer noopener">
+                  {{ social.label.charAt(0) }}
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
 
       <form class="contact__form" v-reveal="150" @submit.prevent="handleSubmit">
@@ -107,6 +152,10 @@ function fieldError(field) {
         </button>
       </form>
     </div>
+
+    <div class="container contact__bottom">
+      <p class="contact__copyright">{{ t('footer.copyright') }}</p>
+    </div>
   </section>
 </template>
 
@@ -138,8 +187,105 @@ function fieldError(field) {
   margin-bottom: var(--space-sm);
 }
 
+/* Scroll-driven gradient reveal: tajuk "shimmer" masuk bila section
+   discroll ke dalam viewport. Fallback warna putih pekat untuk browser
+   yang tak sokong animation-timeline (mis. Safari/Firefox lama). */
+@supports (animation-timeline: view()) {
+  .contact__title {
+    background: radial-gradient(60% 120% at 30% 100%, #fff 0%, var(--color-warm) 55%, transparent 80%);
+    background-size: 160% 220%;
+    background-position: 0% 0%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    opacity: 0;
+    animation: contact-title-move linear both, contact-title-fade linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 35%, entry 0% cover 20%;
+  }
+}
+
+@keyframes contact-title-move {
+  to { background-position: 100% 100%; }
+}
+
+@keyframes contact-title-fade {
+  to { opacity: 1; }
+}
+
 .contact__subtitle {
   color: rgba(255, 255, 255, 0.75);
+}
+
+.contact__footer-nav {
+  display: flex;
+  gap: var(--space-2xl);
+  margin-top: var(--space-lg);
+  padding-top: var(--space-lg);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.footer-nav__heading {
+  color: var(--color-warm);
+  font-weight: 600;
+  font-size: var(--fs-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-sm);
+}
+
+.footer-nav__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.footer-nav__list a {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: var(--fs-sm);
+  transition: color var(--duration-fast) var(--ease-smooth);
+}
+
+.footer-nav__list a:hover {
+  color: #fff;
+}
+
+.footer-nav__socials {
+  list-style: none;
+  display: flex;
+  gap: var(--space-xs);
+}
+
+.footer-nav__socials a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-weight: 700;
+  font-size: var(--fs-sm);
+  transition: background var(--duration-fast) var(--ease-smooth),
+              transform var(--duration-fast) var(--ease-bounce);
+}
+
+.footer-nav__socials a:hover {
+  background: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+.contact__bottom {
+  margin-top: var(--space-2xl);
+  padding-top: var(--space-md);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.contact__copyright {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: var(--fs-xs);
 }
 
 .contact__form {
@@ -188,6 +334,11 @@ function fieldError(field) {
 @media (max-width: 860px) {
   .contact__inner {
     grid-template-columns: 1fr;
+  }
+
+  .contact__footer-nav {
+    gap: var(--space-lg);
+    flex-wrap: wrap;
   }
 }
 </style>

@@ -51,21 +51,23 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
       <a href="#home" class="navbar__logo" @click.prevent="scrollToSection('#home')">
         Job<span>Fair</span>
       </a>
-    
-      <nav class="navbar__links">
-        <a
-          v-for="link in navLinks"
-          :key="link.target"
-          href="#"
-          class="navbar__link"
-          @click.prevent="scrollToSection(link.target)"
-        >
-          {{ t(link.key) }}
-        </a>
-        <RouterLink to="/spinning-wheel" class="navbar__link navbar__link--highlight">
-          {{ t('nav.spinWheel') }}
-        </RouterLink>
-      </nav>
+
+      <menu class="navbar__links">
+        <li v-for="link in navLinks" :key="link.target">
+          <a
+            href="#"
+            class="navbar__link"
+            @click.prevent="scrollToSection(link.target)"
+          >
+            {{ t(link.key) }}
+          </a>
+        </li>
+        <li>
+          <RouterLink to="/spinning-wheel" class="navbar__link cta">
+            {{ t('nav.spinWheel') }}
+          </RouterLink>
+        </li>
+      </menu>
 
       <div class="navbar__actions">
         <LanguageSwitcher class="navbar__lang-desktop" />
@@ -82,40 +84,65 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
     </div>
 
     <Transition name="mobile-menu">
-      <nav v-if="isMobileOpen" class="navbar__mobile">
-        <a
-          v-for="link in navLinks"
-          :key="link.target"
-          href="#"
-          class="navbar__mobile-link"
-          @click.prevent="scrollToSection(link.target)"
-        >
-          {{ t(link.key) }}
-        </a>
-        <RouterLink to="/spinning-wheel" class="navbar__mobile-link navbar__link--highlight" @click="isMobileOpen = false">
-          {{ t('nav.spinWheel') }}
-        </RouterLink>
-        <LanguageSwitcher class="navbar__lang-mobile" />
-      </nav>
+      <menu v-if="isMobileOpen" class="navbar__mobile">
+        <li v-for="link in navLinks" :key="link.target">
+          <a
+            href="#"
+            class="navbar__mobile-link"
+            @click.prevent="scrollToSection(link.target)"
+          >
+            {{ t(link.key) }}
+          </a>
+        </li>
+        <li>
+          <RouterLink
+            to="/spinning-wheel"
+            class="navbar__mobile-link cta"
+            @click="isMobileOpen = false"
+          >
+            {{ t('nav.spinWheel') }}
+          </RouterLink>
+        </li>
+      </menu>
     </Transition>
   </header>
 </template>
 
 <style scoped>
+@import url('https://fonts.bunny.net/css?family=jura:300,500');
+
 .navbar {
+  --gap: 1rem;
+  --link-color: var(--color-primary);
+  --cta-color: rgb(246 51 154);
+
   position: fixed;
   top: 0;
-  left: 0;
-  right: 0;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+  width: 100%;
   z-index: 100;
-  transition: background var(--duration-base) var(--ease-smooth),
+  border: 2px solid transparent;
+  border-radius: 0;
+  will-change: top, width, border-radius;
+  transition: top var(--duration-base) var(--ease-smooth),
+              width var(--duration-base) var(--ease-smooth),
+              border-radius var(--duration-base) var(--ease-smooth),
+              border-color var(--duration-base) var(--ease-smooth),
+              background var(--duration-base) var(--ease-smooth),
               box-shadow var(--duration-base) var(--ease-smooth);
 }
 
 .navbar--scrolled {
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(12px);
-  box-shadow: var(--shadow-sm);
+  top: var(--space-sm);
+  width: min(calc(100% - 2rem), 1100px);
+  border-radius: var(--radius-full);
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  box-shadow: var(--shadow-sm), inset 0 1px 0 rgba(255, 255, 255, 0.6);
 }
 
 .navbar__inner {
@@ -131,6 +158,7 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
   font-size: var(--fs-xl);
   font-weight: 700;
   color: var(--color-text);
+  transition: color var(--duration-base) var(--ease-smooth);
 }
 
 .navbar--scrolled .navbar__logo {
@@ -141,56 +169,59 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
   color: var(--color-primary);
 }
 
+/* --- Menu / links (echo-shadow hover effect) --- */
 .navbar__links {
   display: flex;
   align-items: center;
-  gap: var(--space-lg);
+  flex-wrap: nowrap;
+  gap: var(--gap);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-family: "Jura", sans-serif;
+}
+
+.navbar__links li {
+  display: flex;
+  align-items: center;
+  color: var(--link-color);
+  --shadow-color: var(--link-color);
+}
+
+.navbar__links li + li::before {
+  content: '\00B7';
+  margin-right: var(--gap);
+  color: var(--link-color);
 }
 
 .navbar__link {
   font-weight: 500;
   font-size: var(--fs-sm);
-  color: var(--color-text);
-  position: relative;
-  padding: 0.25rem 0;
-  transition: color var(--duration-fast) var(--ease-smooth);
+  color: inherit;
+  text-decoration: none;
+  transition: text-shadow 300ms ease-in;
 }
 
-.navbar__link::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -2px;
-  width: 0;
-  height: 2px;
-  background: var(--color-primary);
-  transition: width var(--duration-base) var(--ease-smooth);
+.navbar__link.cta,
+.navbar__mobile-link.cta {
+  --shadow-color: var(--cta-color);
+  color: var(--cta-color);
+  font-weight: 600;
 }
 
-.navbar__link:hover {
-  color: var(--color-primary);
+.navbar__link:where(:hover, :focus-visible),
+.navbar__mobile-link:where(:hover, :focus-visible) {
+  outline: none;
+  text-shadow:
+    0  2ex color-mix(in srgb, var(--shadow-color) 35%, transparent),
+    0 -2ex color-mix(in srgb, var(--shadow-color) 35%, transparent),
+    0  4ex color-mix(in srgb, var(--shadow-color) 15%, transparent),
+    0 -4ex color-mix(in srgb, var(--shadow-color) 15%, transparent),
+    0  6ex color-mix(in srgb, var(--shadow-color) 7.5%, transparent),
+    0 -6ex color-mix(in srgb, var(--shadow-color) 7.5%, transparent);
 }
 
-.navbar__link:hover::after {
-  width: 100%;
-}
-
-.navbar__link--highlight {
-  background: var(--gradient-hero);
-  color: #fff !important;
-  padding: 0.4rem 1rem;
-  border-radius: var(--radius-full);
-}
-
-.navbar__link--highlight::after {
-  display: none;
-}
-
-.navbar__link--highlight:hover {
-  transform: translateY(-2px);
-  color: #fff;
-}
-
+/* --- Actions / toggle --- */
 .navbar__actions {
   display: flex;
   align-items: center;
@@ -247,19 +278,27 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
   transform: rotate(-45deg);
 }
 
+/* --- Mobile menu --- */
 .navbar__mobile {
   display: flex;
   flex-direction: column;
   gap: var(--space-sm);
   padding: var(--space-md);
+  margin: 0;
+  list-style: none;
   background: var(--color-bg);
   box-shadow: var(--shadow-md);
+  font-family: "Jura", sans-serif;
 }
 
 .navbar__mobile-link {
   font-weight: 500;
   padding: var(--space-xs) 0;
   border-bottom: 1px solid var(--color-border);
+  color: var(--link-color);
+  text-decoration: none;
+  display: block;
+  transition: text-shadow 300ms ease-in;
 }
 
 .mobile-menu-enter-active,

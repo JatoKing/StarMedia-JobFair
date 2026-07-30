@@ -16,11 +16,11 @@ const size = 320
 const center = size / 2
 const radius = size / 2 - 4
 
-// Palette warna cycle ikut index (Vibrant Playful theme)
-const palette = ['#FF6B35', '#6C5CE7', '#00D9C0', '#FFC93C', '#FF4757', '#A29BFE']
+// Palette warna cycle ikut index (Cream & Crimson theme)
+const palette = ['#B20A2C', '#6B041A', '#FFFBD5', '#E0A83D', '#FF4757', '#D9536C']
 
 function colorFor(prize, index) {
-  if (prize.type === 'grand') return '#FFC93C' // gold highlight untuk grand prize
+  if (prize.type === 'grand') return '#E0A83D' // gold highlight untuk grand prize
   return palette[index % palette.length]
 }
 

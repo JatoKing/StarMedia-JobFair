@@ -1,27 +1,28 @@
 :root {
-  /* === Colors: Vibrant Playful === */
-  --color-primary: #FF6B35;        /* orange - CTA utama */
-  --color-primary-dark: #E5501F;
-  --color-secondary: #6C5CE7;      /* purple - heading, accent */
-  --color-secondary-light: #A29BFE;
-  --color-accent: #00D9C0;         /* teal/mint - highlight, badge */
-  --color-warm: #FFC93C;           /* yellow - hover, prize highlight */
+  /* === Colors: Cream & Crimson === */
+  --color-primary: #B20A2C;        /* crimson - CTA utama */
+  --color-primary-dark: #8C0824;
+  --color-secondary: #6B041A;      /* deep maroon - heading, accent */
+  --color-secondary-light: #D9536C;
+  --color-accent: #C43349;         /* mid crimson - text-safe highlight, badge */
+  --color-cream: #FFFBD5;          /* pale cream - decorative bg only, not for text */
+  --color-warm: #E0A83D;           /* warm gold - hover, prize highlight */
 
   --color-bg: #FFFFFF;
-  --color-bg-alt: #F8F7FF;         /* section alternate, light purple tint */
-  --color-bg-dark: #1A1A2E;        /* footer, dark section */
+  --color-bg-alt: #FFFCE8;         /* section alternate, light cream tint */
+  --color-bg-dark: #3A0410;        /* footer, dark section */
 
-  --color-text: #1A1A2E;
-  --color-text-muted: #6B6B80;
+  --color-text: #241012;
+  --color-text-muted: #7A5A5E;
   --color-text-light: #FFFFFF;
 
-  --color-border: #E8E6F5;
+  --color-border: #EFE6C0;
   --color-success: #00C48C;
   --color-error: #FF4757;
 
   /* === Gradients === */
-  --gradient-hero: linear-gradient(135deg, #FF6B35 0%, #6C5CE7 100%);
-  --gradient-card: linear-gradient(135deg, #00D9C0 0%, #6C5CE7 100%);
+  --gradient-hero: linear-gradient(135deg, #FFFBD5 0%, #B20A2C 100%);
+  --gradient-card: linear-gradient(135deg, #B20A2C 0%, #FFFBD5 100%);
 
   /* === Typography === */
   --font-heading: 'Space Grotesk', sans-serif;
@@ -52,8 +53,8 @@
 
   --shadow-sm: 0 2px 8px rgba(26, 26, 46, 0.06);
   --shadow-md: 0 8px 24px rgba(26, 26, 46, 0.1);
-  --shadow-lg: 0 16px 40px rgba(108, 92, 231, 0.18);
-  --shadow-glow: 0 0 24px rgba(255, 107, 53, 0.35);
+  --shadow-lg: 0 16px 40px rgba(107, 4, 26, 0.18);
+  --shadow-glow: 0 0 24px rgba(178, 10, 44, 0.35);
 
   /* === Motion === */
   --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);

@@ -8,7 +8,7 @@
 },
   "hero": {
     "eyebrow": "🎉 Job Fair 2026",
-    "title": "Your Career Journey<br />Starts Here",
+    "title": "Your <span class=\"hero__title-solid\">Career Journey</span><br />Starts Here",
     "subtitle": "Meet 50+ leading companies, explore job openings across industries, and join live job matching sessions — all in one place.",
     "ctaExhibitor": "Become an Exhibitor",
     "ctaDirectory": "View Directory",
@@ -23,11 +23,10 @@
     "title": "Explore Exhibitors & Floor Plan",
     "subtitle": "Find companies, job roles, or industries you're interested in.",
     "searchPlaceholder": "Search company or job title...",
-    "viewFloorPlan": "🗺️ View Full Floor Plan",
+    "toggleFloorPlan": "View Floor Plan",
+    "clearFilter": "Clear Filter",
     "empty": "No exhibitors found. Try a different keyword or category.",
     "booth": "Booth",
-    "floorPlanTitle": "Floor Plan — Job Fair 2026",
-    "floorPlanSubtitle": "Click any booth to view exhibitor details.",
     "positionsLabel": "Open Positions:",
     "categories": {
       "all": "All",
@@ -118,6 +117,12 @@
   },
   "common": {
     "close": "Close"
+  },
+  "footer": {
+    "tagline": "Connecting talent with leading companies — one job fair at a time.",
+    "quickLinks": "Quick Links",
+    "followUs": "Follow Us",
+    "copyright": "© 2026 JobFair. All rights reserved."
   },
 "spinningWheel": {
   "eyebrow": "Job Fair Spinning Wheel",

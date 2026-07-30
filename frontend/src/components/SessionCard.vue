@@ -97,7 +97,7 @@ function formatDateTime(datetime) {
   font-weight: 600;
   padding: 0.25rem 0.7rem;
   border-radius: var(--radius-full);
-  background: rgba(0, 217, 192, 0.15);
+  background: rgba(196, 51, 73, 0.15);
   color: var(--color-accent);
   white-space: nowrap;
 }

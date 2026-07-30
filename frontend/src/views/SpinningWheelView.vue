@@ -298,17 +298,17 @@ onMounted(fetchPrizes)
 }
 
 .result-modal__badge--grand {
-  background: rgba(255, 201, 60, 0.2);
-  color: #b8860b;
+  background: rgba(224, 168, 61, 0.3);
+  color: #8a6412;
 }
 
 .result-modal__badge--second {
-  background: rgba(108, 92, 231, 0.15);
+  background: rgba(107, 4, 26, 0.15);
   color: var(--color-secondary);
 }
 
 .result-modal__badge--consolation {
-  background: rgba(0, 217, 192, 0.15);
+  background: rgba(196, 51, 73, 0.15);
   color: var(--color-accent);
 }
 

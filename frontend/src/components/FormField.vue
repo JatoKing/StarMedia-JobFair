@@ -95,7 +95,7 @@ defineEmits(['update:modelValue'])
 .form-field__input:focus {
   outline: none;
   border-color: var(--color-secondary);
-  box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.15);
+  box-shadow: 0 0 0 3px rgba(107, 4, 26, 0.15);
 }
 
 .form-field__input--textarea {

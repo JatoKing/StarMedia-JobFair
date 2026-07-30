@@ -1,7 +1,7 @@
 <script setup>
 import { computed } from 'vue'
 
-const colors = ['#FF6B35', '#6C5CE7', '#00D9C0', '#FFC93C', '#FF4757']
+const colors = ['#B20A2C', '#6B041A', '#FFFBD5', '#E0A83D', '#FF4757']
 
 const pieces = computed(() =>
   Array.from({ length: 60 }, (_, i) => ({
