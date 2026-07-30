@@ -25,7 +25,7 @@
             "graphic": "🔊",
             "probability": 0.1,
             "quantity": 5,
-            "remaining": 4
+            "remaining": 3
         },
         {
             "id": "consolation-01",
@@ -34,7 +34,7 @@
             "graphic": "👕",
             "probability": 0.2,
             "quantity": 20,
-            "remaining": 19
+            "remaining": 13
         },
         {
             "id": "consolation-02",
@@ -43,7 +43,7 @@
             "graphic": "🎫",
             "probability": 0.25,
             "quantity": 30,
-            "remaining": 29
+            "remaining": 27
         },
         {
             "id": "consolation-03",
@@ -52,7 +52,7 @@
             "graphic": "👜",
             "probability": 0.35,
             "quantity": 40,
-            "remaining": 36
+            "remaining": 29
         }
     ]
 }

@@ -3,16 +3,39 @@ import { computed } from 'vue'
 
 const colors = ['#B20A2C', '#6B041A', '#FFFBD5', '#E0A83D', '#FF4757']
 
-const pieces = computed(() =>
-  Array.from({ length: 60 }, (_, i) => ({
-    id: i,
-    left: Math.random() * 100,
-    delay: Math.random() * 0.5,
-    duration: 2 + Math.random() * 1.5,
-    color: colors[i % colors.length],
-    rotation: Math.random() * 360
-  }))
-)
+function randomBetween(min, max) {
+  return min + Math.random() * (max - min)
+}
+
+function makePiece(id, side) {
+  const dir = side === 'left' ? 1 : -1 // cannon kiri tembak ke kanan, cannon kanan tembak ke kiri
+
+  const spreadX = randomBetween(20, 55) * dir // jarak mendatar time puncak (vw)
+  const riseY = randomBetween(-70, -40) // naik ke atas time puncak (vh, negatif = naik)
+  const fallX = spreadX + randomBetween(-10, 10) * dir // terus hanyut sikit lepas puncak
+  const fallY = randomBetween(30, 60) // turun lepas puncak (vh)
+
+  return {
+    id,
+    xOrigin: side === 'left' ? '2%' : '98%',
+    color: colors[id % colors.length],
+    delay: randomBetween(0, 0.25),
+    duration: randomBetween(1.6, 2.4),
+    rotStart: randomBetween(0, 360),
+    rotMid: randomBetween(180, 540) * dir,
+    rotEnd: randomBetween(540, 900) * dir,
+    dxMid: `${spreadX}vw`,
+    dyMid: `${riseY}vh`,
+    dxEnd: `${fallX}vw`,
+    dyEnd: `${riseY + fallY}vh`
+  }
+}
+
+const pieces = computed(() => {
+  const left = Array.from({ length: 35 }, (_, i) => makePiece(i, 'left'))
+  const right = Array.from({ length: 35 }, (_, i) => makePiece(i + 35, 'right'))
+  return [...left, ...right]
+})
 </script>
 
 <template>
@@ -22,11 +45,17 @@ const pieces = computed(() =>
       :key="piece.id"
       class="confetti__piece"
       :style="{
-        left: `${piece.left}%`,
+        left: piece.xOrigin,
+        background: piece.color,
         animationDelay: `${piece.delay}s`,
         animationDuration: `${piece.duration}s`,
-        background: piece.color,
-        transform: `rotate(${piece.rotation}deg)`
+        '--rot-start': `${piece.rotStart}deg`,
+        '--rot-mid': `${piece.rotMid}deg`,
+        '--rot-end': `${piece.rotEnd}deg`,
+        '--dx-mid': piece.dxMid,
+        '--dy-mid': piece.dyMid,
+        '--dx-end': piece.dxEnd,
+        '--dy-end': piece.dyEnd
       }"
     ></span>
   </div>
@@ -43,21 +72,27 @@ const pieces = computed(() =>
 
 .confetti__piece {
   position: absolute;
-  top: -20px;
-  width: 10px;
-  height: 16px;
-  opacity: 0.9;
-  animation: confetti-fall linear forwards;
+  bottom: -2%;
+  width: 9px;
+  height: 14px;
+  opacity: 0;
+  animation-name: confetti-cannon;
+  animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation-fill-mode: forwards;
 }
 
-@keyframes confetti-fall {
+@keyframes confetti-cannon {
   0% {
-    transform: translateY(0) rotate(0deg);
+    transform: translate(0, 0) rotate(var(--rot-start));
+    opacity: 1;
+  }
+  45% {
+    transform: translate(var(--dx-mid), var(--dy-mid)) rotate(var(--rot-mid));
     opacity: 1;
   }
   100% {
-    transform: translateY(110vh) rotate(720deg);
-    opacity: 0.3;
+    transform: translate(var(--dx-end), var(--dy-end)) rotate(var(--rot-end));
+    opacity: 0;
   }
 }
 </style>

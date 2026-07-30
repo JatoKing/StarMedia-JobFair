@@ -51,10 +51,11 @@ async function handleSpin() {
     wonPrize.value = result.prize
     isResultOpen.value = true
 
-    if (result.prize.type === 'grand') {
-      showConfetti.value = true
-      setTimeout(() => (showConfetti.value = false), 3500)
-    } else if (result.prize.type === 'second') {
+    // Confetti untuk setiap kemenangan, tak kira jenis prize
+    showConfetti.value = true
+    setTimeout(() => (showConfetti.value = false), 3500)
+
+    if (result.prize.type === 'second') {
       showSparkle.value = true
       setTimeout(() => (showSparkle.value = false), 1200)
     }
@@ -191,10 +192,6 @@ onMounted(fetchPrizes)
   margin-bottom: var(--space-lg);
 }
 
-.spin-wheel__svg {
-  transition: transform 4s cubic-bezier(0.17, 0.67, 0.29, 0.99);
-}
-
 .spin-hero__cta {
   font-size: var(--fs-lg);
   padding: 1rem 3rem;
@@ -298,17 +295,17 @@ onMounted(fetchPrizes)
 }
 
 .result-modal__badge--grand {
-  background: rgba(224, 168, 61, 0.3);
-  color: #8a6412;
+  background: rgba(255, 201, 60, 0.2);
+  color: #b8860b;
 }
 
 .result-modal__badge--second {
-  background: rgba(107, 4, 26, 0.15);
+  background: rgba(108, 92, 231, 0.15);
   color: var(--color-secondary);
 }
 
 .result-modal__badge--consolation {
-  background: rgba(196, 51, 73, 0.15);
+  background: rgba(0, 217, 192, 0.15);
   color: var(--color-accent);
 }
 

@@ -100,6 +100,9 @@ const slices = computed(() => {
 }
 
 .spin-wheel__svg {
+  transition: transform 4s cubic-bezier(0.17, 0.67, 0.29, 0.99);
+  transform-origin: center center;
+  will-change: transform;
   filter: drop-shadow(0 8px 24px rgba(26, 26, 46, 0.2));
 }
 
