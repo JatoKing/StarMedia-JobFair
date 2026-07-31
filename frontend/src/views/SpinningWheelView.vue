@@ -28,14 +28,17 @@ function typeLabel(type) {
 async function handleSpin() {
   if (isSpinning.value || availablePrizes.value.length === 0) return
 
+  // Snapshot list SEBELUM panggil spin() — spin() terus mengubah 'remaining' pada
+  // array reaktif yang sama, jadi kalau hadiah menang jadi remaining=0, ia terus
+  // hilang dari availablePrizes serta-merta (bukan "render seterusnya"). Kena kira
+  // index & bilangan slice ikut list SEBELUM tu supaya animation align dengan betul.
+  const preSpinPrizes = availablePrizes.value
+
   const result = await spin()
   if (!result.success) return
 
-  const winningIndex = availablePrizes.value.findIndex((p) => p.id === result.prize.id)
-  // Selepas API update 'remaining', prize yang baru habis akan hilang dari availablePrizes
-  // pada render seterusnya — tapi kita kira index BERDASARKAN list SEBELUM update supaya
-  // animation align dengan slice yang betul semasa spin berlaku
-  const n = availablePrizes.value.length
+  const winningIndex = preSpinPrizes.findIndex((p) => p.id === result.prize.id)
+  const n = preSpinPrizes.length
   const seg = 360 / n
   const targetSliceAngle = winningIndex >= 0 ? winningIndex * seg : 0
 
