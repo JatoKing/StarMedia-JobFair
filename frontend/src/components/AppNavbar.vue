@@ -8,15 +8,26 @@ const { t } = useI18n()
 const route = useRoute()
 const router = useRouter()
 
+const emit = defineEmits(['open-exhibitor-form'])
+
 const isScrolled = ref(false)
 const isMobileOpen = ref(false)
 
 const navLinks = [
   { key: 'nav.home', target: '#home' },
   { key: 'nav.directory', target: '#directory' },
-  { key: 'nav.exhibitor', target: '#exhibitor' },
   { key: 'nav.contact', target: '#contact' }
 ]
+
+function openExhibitorForm() {
+  isMobileOpen.value = false
+
+  if (route.path !== '/') {
+    router.push('/?openExhibitor=1')
+  } else {
+    emit('open-exhibitor-form')
+  }
+}
 
 function handleScroll() {
   isScrolled.value = window.scrollY > 40
@@ -63,6 +74,11 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
           </a>
         </li>
         <li>
+          <a href="#" class="navbar__link" @click.prevent="openExhibitorForm">
+            {{ t('nav.exhibitor') }}
+          </a>
+        </li>
+        <li>
           <RouterLink to="/spinning-wheel" class="navbar__link cta">
             {{ t('nav.spinWheel') }}
           </RouterLink>
@@ -92,6 +108,11 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
             @click.prevent="scrollToSection(link.target)"
           >
             {{ t(link.key) }}
+          </a>
+        </li>
+        <li>
+          <a href="#" class="navbar__mobile-link" @click.prevent="openExhibitorForm">
+            {{ t('nav.exhibitor') }}
           </a>
         </li>
         <li>
