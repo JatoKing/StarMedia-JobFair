@@ -17,7 +17,8 @@ const footerNavLinks = [
 const socialLinks = [
   { id: 'facebook', label: 'Facebook', href: '#' },
   { id: 'instagram', label: 'Instagram', href: '#' },
-  { id: 'linkedin', label: 'LinkedIn', href: '#' }
+  { id: 'linkedin', label: 'LinkedIn', href: '#' },
+  { id: 'x', label: 'X (Twitter)', href: '#' }
 ]
 
 function scrollToSection(target) {
@@ -94,7 +95,7 @@ function fieldError(field) {
                 <a href="#" @click.prevent="scrollToSection(link.target)">{{ t(link.key) }}</a>
               </li>
               <li>
-                <RouterLink to="/spinning-wheel">{{ t('nav.spinWheel') }}</RouterLink>
+                <RouterLink to="/spinning-wheel">{{ t('nav.spinWheel').replace('🎡 ', '') }}</RouterLink>
               </li>
             </ul>
           </div>
@@ -104,7 +105,18 @@ function fieldError(field) {
             <ul class="footer-nav__socials">
               <li v-for="social in socialLinks" :key="social.id">
                 <a :href="social.href" :aria-label="social.label" target="_blank" rel="noreferrer noopener">
-                  {{ social.label.charAt(0) }}
+                  <svg v-if="social.id === 'facebook'" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+                    <path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.51 1.49-3.9 3.77-3.9 1.09 0 2.23.2 2.23.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.89h2.78l-.44 2.91h-2.34V22c4.78-.76 8.44-4.92 8.44-9.94Z"/>
+                  </svg>
+                  <svg v-else-if="social.id === 'instagram'" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+                    <path d="M12 2c2.72 0 3.06.01 4.12.06 1.06.05 1.79.22 2.43.47.66.26 1.22.6 1.77 1.15.55.55.89 1.11 1.15 1.77.25.64.42 1.37.47 2.43.05 1.06.06 1.4.06 4.12s-.01 3.06-.06 4.12c-.05 1.06-.22 1.79-.47 2.43a4.9 4.9 0 0 1-1.15 1.77 4.9 4.9 0 0 1-1.77 1.15c-.64.25-1.37.42-2.43.47-1.06.05-1.4.06-4.12.06s-3.06-.01-4.12-.06c-1.06-.05-1.79-.22-2.43-.47a4.9 4.9 0 0 1-1.77-1.15 4.9 4.9 0 0 1-1.15-1.77c-.25-.64-.42-1.37-.47-2.43C2.01 15.06 2 14.72 2 12s.01-3.06.06-4.12c.05-1.06.22-1.79.47-2.43.26-.66.6-1.22 1.15-1.77A4.9 4.9 0 0 1 5.45.53c.64-.25 1.37-.42 2.43-.47C8.94 2.01 9.28 2 12 2Zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 8.25A3.25 3.25 0 1 1 12 8.75a3.25 3.25 0 0 1 0 6.5ZM17.5 6.5a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4Z"/>
+                  </svg>
+                  <svg v-else-if="social.id === 'linkedin'" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+                    <path d="M20.45 2H3.55A1.55 1.55 0 0 0 2 3.55v16.9A1.55 1.55 0 0 0 3.55 22h16.9A1.55 1.55 0 0 0 22 20.45V3.55A1.55 1.55 0 0 0 20.45 2ZM8.34 18.34H5.67V9.75h2.67v8.59ZM7 8.6a1.55 1.55 0 1 1 0-3.1 1.55 1.55 0 0 1 0 3.1Zm11.34 9.74h-2.67v-4.18c0-1-.02-2.27-1.38-2.27-1.39 0-1.6 1.08-1.6 2.2v4.25H10.02V9.75h2.56v1.17h.04c.36-.68 1.23-1.4 2.53-1.4 2.7 0 3.2 1.78 3.2 4.1v4.72Z"/>
+                  </svg>
+                  <svg v-else-if="social.id === 'x'" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+                    <path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.22-6.83-5.97 6.83H1.66l7.73-8.84L1.25 2.25h6.83l4.72 6.24 5.44-6.24Zm-1.16 17.52h1.83L7.02 4.13H5.06l12.02 15.64Z"/>
+                  </svg>
                 </a>
               </li>
             </ul>
@@ -242,13 +254,34 @@ function fieldError(field) {
 }
 
 .footer-nav__list a {
+  position: relative;
+  display: inline-block;
   color: rgba(255, 255, 255, 0.75);
   font-size: var(--fs-sm);
-  transition: color var(--duration-fast) var(--ease-smooth);
+  transition: color var(--duration-fast) var(--ease-smooth),
+              transform var(--duration-fast) var(--ease-smooth);
+}
+
+.footer-nav__list a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background: var(--color-warm);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--duration-fast) var(--ease-smooth);
 }
 
 .footer-nav__list a:hover {
   color: #fff;
+  transform: translateX(4px);
+}
+
+.footer-nav__list a:hover::after {
+  transform: scaleX(1);
 }
 
 .footer-nav__socials {
@@ -266,10 +299,16 @@ function fieldError(field) {
   border-radius: var(--radius-full);
   background: rgba(255, 255, 255, 0.1);
   color: #fff;
-  font-weight: 700;
-  font-size: var(--fs-sm);
   transition: background var(--duration-fast) var(--ease-smooth),
               transform var(--duration-fast) var(--ease-bounce);
+}
+
+.footer-nav__socials a svg {
+  transition: transform var(--duration-fast) var(--ease-bounce);
+}
+
+.footer-nav__socials a:hover svg {
+  transform: scale(1.15) rotate(8deg);
 }
 
 .footer-nav__socials a:hover {
