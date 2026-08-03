@@ -144,12 +144,19 @@ define('GEMINI_MODEL', 'gemini-3.1-flash-lite');
 
 ### 2.3 Register the Site with Herd
 
-```bash
-cd starmedia-jobfair
-herd link starmedia-jobfair
-```
-
-The site will be accessible at `http://starmedia-jobfair.test`.
+1. Make sure the `starmedia-jobfair` folder is somewhere on disk (e.g. `~/Herd/starmedia-jobfair`).
+2. Open a terminal **inside that folder** and run:
+   ```bash
+   cd path/to/starmedia-jobfair
+   herd link starmedia-jobfair
+   ```
+   This registers the site with Herd's web server directly. (Using Herd's "Add Site" / "Link Existing Project" button in the GUI *should* do the same thing, but if you still see a 404 "Site not found" error after using the GUI, running `herd link` from the terminal resolves it reliably.)
+3. Confirm it's linked:
+   ```bash
+   herd links
+   ```
+   You should see `starmedia-jobfair.test` in the list, pointing at the correct path.
+4. Open `http://starmedia-jobfair.test/backend/api/sessions.php` in your browser — you should see a JSON response (not a 404).
 
 ### 2.4 Configure CORS
 
