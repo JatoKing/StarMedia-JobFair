@@ -17,7 +17,7 @@ define('FAIR_VENUE', 'Kuala Lumpur Convention Centre');
 define('DB_HOST', '127.0.0.1');
 define('DB_NAME', 'starmedia_jobfair_db');
 define('DB_USER', 'root');
-define('DB_PASS', '');
+define('DB_PASS', ''); // fill in if your MySQL has a password
 
 // CORS allowed origins (untuk development, Vue dev server)
 define('ALLOWED_ORIGINS', [

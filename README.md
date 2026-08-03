@@ -8,10 +8,26 @@ A web application for a Job Fair, built with **VueJS** (frontend), **PHP** (back
 
 Before starting, make sure the following are installed:
 
-- **PHP 7.4+ or PHP 8** — recommended to use [Laravel Herd](https://herd.laravel.com) (Mac/Windows) for automatic PHP + Nginx setup
+- **PHP 8.2** — recommended to use [Laravel Herd](https://herd.laravel.com) (Mac/Windows) for automatic PHP + Nginx setup
 - **MySQL** — can be enabled via Herd Pro, or installed separately (e.g. `brew install mysql` on Mac)
-- **Node.js** (v18 or above) and **npm** — to run Vue/Vite
+- **Node.js `^22.18.0` or `>=24.12.0`** and **npm** — to run Vue/Vite (see `engines` in `frontend/package.json`)
 - **Composer** — not required (this project does not use Laravel/PHP framework, only vanilla PHP)
+
+---
+
+## ⚡ Quick Start (TL;DR)
+
+```bash
+mysql -u root -e "CREATE DATABASE starmedia_jobfair_db;"
+mysql -u root starmedia_jobfair_db < database/schema.sql
+cp backend/config/app.example.php backend/config/app.php
+cp backend/config/gemini.example.php backend/config/gemini.php   # then add your Gemini API key
+chmod 664 backend/config/prizes.json
+herd link starmedia-jobfair
+cd frontend && npm install --legacy-peer-deps && npm run dev
+```
+
+Then open `http://localhost:5173`. See the detailed steps below if anything doesn't work.
 
 ---
 
@@ -77,6 +93,12 @@ You should see all four tables above listed.
 
 ### 2.1 Configure Database Connection
 
+Copy `backend/config/app.example.php` to `backend/config/app.php`:
+
+```bash
+cp backend/config/app.example.php backend/config/app.php
+```
+
 Open `backend/config/app.php`, and make sure the following constants match your MySQL setup (`backend/includes/db.php` reads these directly — it's the single source of truth for DB credentials):
 
 ```php
@@ -85,6 +107,8 @@ define('DB_NAME', 'starmedia_jobfair_db');
 define('DB_USER', 'root');
 define('DB_PASS', ''); // fill in if your MySQL has a password
 ```
+
+> `backend/config/app.php` is gitignored (`backend/.gitignore`) — edit it freely with your own DB credentials without risking a conflict on `git pull`.
 
 ### 2.2 Configure the AI Chatbot (Gemini API)
 
@@ -316,6 +340,7 @@ This section maps each requirement from the "Practical Test for Front-End Develo
 | "Server error" on a form | Check the MySQL table structure matches what the PHP code expects (`DESCRIBE table_name;`) |
 | CORS error in browser console | Make sure the origin in `cors.php` matches your Vite port (`localhost:5173`) |
 | Chatbot not responding | Check the Gemini API key is correct and the model used is still supported (see Step 2.2) |
+| `starmedia-jobfair.test` doesn't resolve / "site can't be reached" | Herd's `.test` DNS can take a moment after `herd link`, or the Herd background daemon isn't running. Run `herd restart`, then re-check with `herd links`; also confirm the Herd app itself is running (menu bar icon on Mac) |
 
 ---
 
